@@ -1,0 +1,18 @@
+# Cabeceras de Cloudflare (se copian a dist/ al compilar).
+
+# Seguridad en todas las páginas
+/*
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: frame-ancestors 'self'
+
+# Ficheros con hash en el nombre: nunca cambian, caché de un año
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Fotos de actividades: el nombre no cambia salvo que se sustituya la foto, caché de 30 días
+/img/*
+  Cache-Control: public, max-age=2592000
